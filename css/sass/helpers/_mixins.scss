@@ -1,0 +1,25 @@
+// for media query
+@mixin query($media) {
+    @each $med, $minMax, $size in $medias {
+        @if $media == $med {
+            @media (#{$minMax}-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
+// for layout
+
+@mixin layout($color, $opacity) {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color, $opacity);
+        @content;
+    }
+}

@@ -1,0 +1,36 @@
+.head-with-border {
+    display: flex;
+    padding: 10px 20px;
+    color: $whiteColor;
+    position: relative;
+    background-color: $mainColor;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto 40px;
+    text-transform: uppercase;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 100%;
+        background-color: $secColor;
+        border: 1px solid transparent;
+        border-right-color: $mainColor;
+        border-left-color: $mainColor;
+        z-index: -2;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        border: 1px solid $mainColor;
+        height: 1px;
+        width: 10001px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -3;
+    }
+}

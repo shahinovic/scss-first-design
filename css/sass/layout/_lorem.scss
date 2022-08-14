@@ -1,0 +1,19 @@
+.lorem {
+    padding: 50px 0;
+    border-bottom: 1px solid $whiteColor;
+    .container {
+        overflow: hidden;
+        .boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            .box {
+                border-radius: 10px;
+                overflow: hidden;
+                img {
+                    max-width: 100%;
+                }
+            }
+        }    
+    }
+}

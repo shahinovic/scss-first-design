@@ -1,0 +1,187 @@
+.header {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    .container {
+        display: flex;
+        direction: ltr;
+        border: 1px solid $secColor;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: $secColor;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.295);
+        position: relative;
+    .logo {
+        width: 70%;
+        @include query(med) {
+            width: 30%;
+            font-size: 13px;
+        }
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        p {
+            margin-right: 15px;
+            color: $mainColor;  
+            font: {
+                family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                weight: bold;
+                size: 1.1em;
+            }
+        }
+        span {
+            width: 20px;
+            height: 20px;
+            font-size: 1.3em;
+            cursor: pointer;
+            display: flex;
+            margin-right: 15px;
+            transition: $tran;
+            color: $mainColor;
+            &:hover {
+                font-size: 1.5em;
+                filter: drop-shadow(0 0 5px $mainColor) drop-shadow(0 0 10px $mainColor) ;
+            }
+            &.active {
+                filter: drop-shadow(0 0 5px $mainColor) drop-shadow(0 0 10px $mainColor) ;
+            }
+        }
+    }
+    .toggler {
+        display: block;
+        @include query(med) {
+            display: none;
+        }
+        border: 1px solid $mainColor;
+        display: grid;
+        place-items: center;
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+        font-size: 1.5em;
+        color: $mainColor;
+        cursor: pointer;
+        transition: $tran;
+        &.active {
+            color: $secColor;
+            border-color: $secColor;
+            background-color: $mainColor;
+            filter: drop-shadow(0 0 5px $mainColor);
+        }
+        &:hover {
+            color: $secColor;
+            border-color: $secColor;
+            background-color: $mainColor;
+            filter: drop-shadow(0 0 5px $mainColor);
+        }
+        .on {
+            pointer-events: none;
+        }
+        .off {
+            display: none;
+            pointer-events: none;
+        }
+    }
+    .navbar {
+        margin: 0;
+        background-color: $mainColor;
+        width: 70%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+        @include query(med) {
+            display: flex;
+        }
+        &.active {
+            position: absolute;
+            bottom: -100%;
+            transform: translateY(100%);
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $mainColor;
+            background-color: $secColor;
+            box-sizing: border-box;
+            &::before {
+                @include query(med) {
+                    display: none;
+                }
+                content: '';
+                position: absolute;
+                top: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 7px solid transparent;
+                border-bottom-color: $mainColor;
+            }
+            li a {
+                color: $mainColor;
+                width: 145px;
+                &:hover {
+                    color: #fff;
+                }
+                &.active {
+                    color: #fff;
+                }
+                &::before {
+                    width: 5px;
+                    height: 100%;
+                    background-color: transparent;
+                    transition: $tran;
+                }
+                &:hover::before {
+                    background-color: $mainColor;
+                }
+                &.active::before {
+                    background-color: $mainColor;
+                }
+            }
+    }
+        li {
+            font-size: 16px;
+            @include query(larg) {
+                font-size: 18px;
+            }
+            a {
+                color: $secColor;
+                text-decoration: none;
+                display: block;
+                padding: 15px 20px;
+                min-height: 100%;
+                transition: $tran;
+                position: relative;
+                &:hover {
+                    color: #fff;
+                }
+                &.active {
+                    color: #fff;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    left: 0;
+                    width: 100%;
+                    height: 5px;
+                    background-color: transparent;
+                    transition: $tran;
+                }
+                &:hover::before {
+                    background-color: $secColor;
+                }
+                &.active::before {
+                    background-color: $secColor;
+                }
+                
+            }
+
+
+        }
+    }
+    }
+}
